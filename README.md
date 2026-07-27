@@ -1,1 +1,71 @@
-# blog
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+</head>
+
+<body>
+    <header>
+        <h1>Meu blog tech</h1>
+        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+        <button>❤️<span>0</span></button>
+        <button>👍<span>0</span></button>
+
+        <style>
+            header {
+                background-color: #183C63;
+                color: #FFFFFF;
+                text-align: center;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            main {
+                background-color: #FFFFFF;
+                color: #183C63;
+                display: flex;
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+
+            div p {
+                font-weight: bold;
+            }
+
+            .artigo-autor {
+                font-weight: bold;
+            }
+        </style>
+    </header>
+    <main>
+        <article>
+    <img src="imagem-blog.png" alt="livro com símbolos de tecnologia">
+        <div>
+            <h2>Meu primeiro post</h2>
+            <p class="artigo-autor">Por: Alexandra</p>
+            <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de
+                tecnologia.</p>
+            <button>❤️<span>0</span></button>
+            <button>👍<span>0</span></button>
+        </div>
+        </article>
+        </main>
+    <script>
+        const botao = document.querySelectorAll("button");
+        botoes.forEach(function (botao) {
+            botao.addEventListener("click", botaoClicado);
+            function botaoClicado() {
+                let texto = botao.querySelector("span");
+                texto.textContent++;
+            }
+        });
+    </script>
+</body>
+</html>
