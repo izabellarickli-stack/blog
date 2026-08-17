@@ -1,170 +1,588 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog</title>
+
+    <title>Meu Blog Tech</title>
+
     <style>
-        header {
-            background-color: #183C63;
-            color: #FFFFFF;
-            text-align: center;
-            max-width: 800px;
-            margin-bottom: 30px;
-            margin: 0 auto;
+
+        /* ===== RESET ===== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: "yellow";
-
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #101c36, #183c63, #43265f);
+            color: #ffffff;
+            min-height: 100vh;
         }
+
+
+        /* ===== CABEÇALHO ===== */
+
+        header {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+
+            background: linear-gradient(90deg, #ffffff, #d8a7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #d7e3f5;
+            margin-bottom: 25px;
+        }
+
+
+        /* ===== BOTÕES ===== */
+
+        button {
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+
+            color: white;
+
+            padding: 10px 16px;
+            margin: 5px;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        button span {
+            margin-left: 6px;
+            font-weight: bold;
+        }
+
+
+        /* ===== CONTEÚDO ===== */
 
         main {
-            background-color: #d4adcf;
-            color: #183C63;
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 30px auto;
+
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* ===== CARDS ===== */
+
+        article {
+            width: 100%;
+
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding: 30px;
+
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            border-radius: 25px;
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.30);
+
+            transition: 0.4s;
         }
 
-        img {
-            width: 80px;
-            height: 80px;
+        article:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.45),
+                0 0 25px rgba(174, 100, 255, 0.15);
         }
 
-        div p {
-            font-weight: bold;
+
+        /* ===== TEXTO ===== */
+
+        article > div:first-child {
+            flex: 1;
+        }
+
+        article h2 {
+            font-size: 28px;
+            margin: 15px 0 8px;
+
+            color: #ffffff;
+        }
+
+        article p {
+            line-height: 1.7;
+            color: #dce7f5;
         }
 
         .artigo-autor {
+            color: #c98cff !important;
             font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .imagem {
-            width: 200px;
-            height: 200px;
+
+        /* ===== IMAGENS ===== */
+
+        article img {
+            width: 100px;
+            height: 100px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        article .imagem {
+            width: 220px;
+            height: 220px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            border: 3px solid rgba(255, 255, 255, 0.15);
+
+            transition: 0.4s;
+        }
+
+        article:hover .imagem {
+            transform: scale(1.04);
+        }
+
+
+        /* ===== BOTÕES DOS ARTIGOS ===== */
+
+        article button:first-of-type:hover {
+            background: rgba(255, 50, 100, 0.25);
+        }
+
+        article button:last-of-type:hover {
+            background: rgba(100, 150, 255, 0.25);
+        }
+
+
+        /* ===== RODAPÉ ===== */
+
+        footer {
+            width: 100%;
+
+            margin-top: 60px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: rgba(0, 0, 0, 0.35);
+
+            color: #cbd8e8;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+
+        /* ===== ANIMAÇÃO ===== */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         article {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgb(197, 131, 228);
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-
+            animation: aparecer 0.7s ease;
         }
 
-        footer {
-            background-color: #183C63;
-            color: white;
-            text-align: center;
-            padding: 20px;
+
+        /* ===== CELULAR ===== */
+
+        @media (max-width: 700px) {
+
+            header {
+                margin: 20px auto;
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            article {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+
+            article > div:first-child {
+                width: 100%;
+            }
+
+            article .imagem {
+                width: 200px;
+                height: 200px;
+            }
+
+            article h2 {
+                font-size: 24px;
+            }
+
+            article p {
+                font-size: 15px;
+            }
         }
+
     </style>
 </head>
 
+
 <body>
+
+
+    <!-- ===== CABEÇALHO ===== -->
+
     <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-        <button>❤️<span>0</span></button>
-        <button>👍<span>0</span></button>
+
+        <h1>✨ Meu Blog Tech</h1>
+
+        <p>
+            Tecnologia, treino, séries, música e muito mais.
+        </p>
+
+        <button>
+            ❤️ <span>0</span>
+        </button>
+
+        <button>
+            👍 <span>0</span>
+        </button>
 
     </header>
+
+
+    <!-- ===== ARTIGO 1 ===== -->
+
     <main>
+
         <article>
+
             <div>
-                <img src="images.jpeg" alt="livro com símbolos de tecnologia">
-                <h2>Meu Diário de Treino</h2>
-                <p class="artigo-autor">Por: Izabella de M. Rickli</p>
-                <p>Boas-vindas ao meu novo blog!
-Aqui vou compartilhar dicas de treino, rotinas de exercícios e curiosidades do mundo da musculação e da vida saudável.</p>
-                <button>❤️<span>0</span></button>
-                <button>👎<span>0</span></button>
+
+                <img
+                    src="images.jpeg"
+                    alt="Livro com símbolos de tecnologia"
+                >
+
+                <h2>🏋️ Meu Diário de Treino</h2>
+
+                <p class="artigo-autor">
+                    Por: Izabella de M. Rickli
+                </p>
+
+                <p>
+                    Boas-vindas ao meu novo blog!
+                    Aqui vou compartilhar dicas de treino,
+                    rotinas de exercícios e curiosidades
+                    do mundo da musculação e da vida saudável.
+                </p>
+
+                <button>
+                    ❤️ <span>0</span>
+                </button>
+
+                <button>
+                    👎 <span>0</span>
+                </button>
+
             </div>
+
             <div>
-                <img src="images (4).jpeg" class="imagem">
+
+                <img
+                    src="images (4).jpeg"
+                    class="imagem"
+                    alt="Imagem relacionada a treino"
+                >
+
             </div>
+
         </article>
 
     </main>
+
+
+    <!-- ===== ARTIGO 2 ===== -->
+
     <main>
+
         <article>
+
             <div>
-                <img src="A1p0eUcBf3L._UF1000,1000_QL80_.jpg" alt="livro com símbolos de tecnologia">
-                <h2>Meu Diário de séries</h2>
-                <p class="artigo-autor">Por: Izabella de M. Rickli</p>
-                <p>Boas-vindas ao meu novo blog!
-Aqui vou compartilhar recomendações de filmes e séries, análises dos melhores lançamentos e tudo sobre o universo de Outer Banks — das teorias mais loucas aos bastidores das aventuras dos Pogues. Pura vida!</p>
-                <button>❤️<span>0</span></button>
-                <button>👎<span>0</span></button>
+
+                <img
+                    src="A1p0eUcBf3L._UF1000,1000_QL80_.jpg"
+                    alt="Imagem relacionada a séries"
+                >
+
+                <h2>🎬 Meu Diário de Séries</h2>
+
+                <p class="artigo-autor">
+                    Por: Izabella de M. Rickli
+                </p>
+
+                <p>
+                    Boas-vindas ao meu novo blog!
+                    Aqui vou compartilhar recomendações de filmes
+                    e séries, análises dos melhores lançamentos
+                    e tudo sobre o universo de Outer Banks —
+                    das teorias mais loucas aos bastidores
+                    das aventuras dos Pogues.
+                </p>
+
+                <button>
+                    ❤️ <span>0</span>
+                </button>
+
+                <button>
+                    👎 <span>0</span>
+                </button>
+
             </div>
+
             <div>
-                <img src="Outer-banks-season-5-poster-OK-252x300.jpg" class="imagem">
+
+                <img
+                    src="Outer-banks-season-5-poster-OK-252x300.jpg"
+                    class="imagem"
+                    alt="Poster de Outer Banks"
+                >
+
             </div>
 
         </article>
+
     </main>
+
+
+    <!-- ===== ARTIGO 3 ===== -->
+
     <main>
+
         <article>
+
             <div>
-                <img src= "images (1).jpeg"  al="livro com símbolos de tecnologia">
-                <h2>Meu diáeio de músicas</h2>
-                <p class="artigo-autor">Por: Izabella de M. Rickli</p>
-                <p>Boas-vindas ao meu novo blog!
-Aqui é o espaço onde vou lançar análises de lançamentos, playlists pesadas e tudo sobre a cena do trap nacional — com foco total na discografia, nos conceitos visuais e no estilo do Veigh. Acompanhe as novidades e chegue junto na resenha!</p>
-                <button>❤️<span>0</span></button>
-                <button>👎<span>0</span></button>
+
+                <img
+                    src="images (1).jpeg"
+                    alt="Imagem relacionada a música"
+                >
+
+                <h2>🎵 Meu Diário de Músicas</h2>
+
+                <p class="artigo-autor">
+                    Por: Izabella de M. Rickli
+                </p>
+
+                <p>
+                    Boas-vindas ao meu novo blog!
+                    Aqui é o espaço onde vou lançar análises
+                    de lançamentos, playlists pesadas e tudo
+                    sobre a cena do trap nacional — com foco
+                    total na discografia, nos conceitos visuais
+                    e no estilo do Veigh.
+                </p>
+
+                <button>
+                    ❤️ <span>0</span>
+                </button>
+
+                <button>
+                    👎 <span>0</span>
+                </button>
+
             </div>
+
             <div>
-                <img src="images (3).jpeg" class="imagem">
+
+                <img
+                    src="images (3).jpeg"
+                    class="imagem"
+                    alt="Imagem relacionada ao Veigh"
+                >
+
             </div>
+
         </article>
+
     </main>
+
+
+    <!-- ===== ARTIGO 4 ===== -->
+
     <main>
+
         <article>
+
             <div>
-                <img src="fotojet-2026-05-25t122245.080.avif" alt="livro com símbolos de tecnologia">
-                <h2>freak legacy</h2>
-                <p class="artigo-autor">Por: Izabella de M. Rickli</p>
-                <p>Boas-vindas ao meu novo blog!Aqui é um espaço de memória e tributo a Gabriel Ganley. Vou compartilhar histórias da sua trajetória no esporte, seu carisma, bastidores da sua jornada e o legado que ele deixou para a comunidade fitness. Respeito, inspiração e boas lembranças sempre!  </p>
-                <button>❤️<span>0</span></button>
-                <button>👎<span>0</span></button>
+
+                <img
+                    src="fotojet-2026-05-25t122245.080.avif"
+                    alt="Imagem relacionada a Gabriel Ganley"
+                >
+
+                <h2>💪 Freak Legacy</h2>
+
+                <p class="artigo-autor">
+                    Por: Izabella de M. Rickli
+                </p>
+
+                <p>
+                    Boas-vindas ao meu blog!
+                    Aqui é um espaço de memória e tributo
+                    a Gabriel Ganley. Vou compartilhar histórias
+                    da sua trajetória no esporte, seu carisma,
+                    bastidores da sua jornada e o legado que
+                    ele deixou para a comunidade fitness.
+                    Respeito, inspiração e boas lembranças sempre!
+                </p>
+
+                <button>
+                    ❤️ <span>0</span>
+                </button>
+
+                <button>
+                    👎 <span>0</span>
+                </button>
+
             </div>
+
             <div>
-                <img src="Gabriel_Ganley_1.webp" alt="livro com símbolos de tecnologia" class="imagem">
+
+                <img
+                    src="Gabriel_Ganley_1.webp"
+                    class="imagem"
+                    alt="Gabriel Ganley"
+                >
+
             </div>
+
         </article>
+
     </main>
+
+
+    <!-- ===== RODAPÉ ===== -->
 
     <footer>
-        <p> 2026 Meu Blog Tech | Desenvolvido por Alexandra</p>
+
+        <p>
+            © 2026 Meu Blog Tech | Desenvolvido por Alexandra 💜
+        </p>
+
     </footer>
 
+
+    <!-- ===== JAVASCRIPT ===== -->
+
     <script>
+
         const botoes = document.querySelectorAll("button");
+
         botoes.forEach(function (botao) {
+
             let curtiu = false;
-            botao.addEventListener("click", botaoClicado);
-            function botaoClicado() {
-                console.log("fui clicado");
-                let texto = botao.querySelector("span");
-                if (curtiu === false) {
-                    texto.textContent++;
+
+            botao.addEventListener("click", function () {
+
+                const texto = botao.querySelector("span");
+
+                let quantidade = Number(texto.textContent);
+
+                if (!curtiu) {
+
+                    quantidade++;
+
                     curtiu = true;
+
+                    botao.style.transform = "scale(1.15)";
+
+                    setTimeout(function () {
+                        botao.style.transform = "";
+                    }, 200);
+
                 } else {
-                    texto.textContent--;
+
+                    quantidade--;
+
                     curtiu = false;
+
                 }
-            }
-        })
+
+                texto.textContent = quantidade;
+
+            });
+
+        });
+
     </script>
 
 </body>
 
 </html>
+```
